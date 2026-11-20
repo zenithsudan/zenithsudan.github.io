@@ -62,6 +62,12 @@ h2:after{content:"";display:block;width:56px;height:4px;background:var(--amber);
 footer{background:#0a1e31;color:#8696a6;font-size:12px;padding:22px 0}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 @media(max-width:860px){.g3,.g4,.g2{grid-template-columns:1fr}.g4{grid-template-columns:1fr 1fr}nav{display:none}.hero{padding:64px 0 72px}section{padding:56px 0}.step{min-width:45%}}
+.lead-card{display:flex;gap:36px;align-items:center;margin-top:36px;background:#fff;padding:32px;border-top:4px solid var(--amber);max-width:860px}
+.lead-card img{width:180px;height:180px;object-fit:cover;border-radius:4px;flex:none}
+.lead-card h3{color:var(--navy);font-size:24px;margin-bottom:4px}
+.role{font-size:12px;letter-spacing:.25em;color:var(--steel);font-weight:700;margin-bottom:14px}
+.lead-card p{color:#3b4957;font-size:16px}
+@media(max-width:860px){.lead-card{flex-direction:column;align-items:flex-start;padding:24px}}
 </style>
 </head>
 <body>
@@ -69,7 +75,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 
 <header><div class="wrap">
 <a class="brand" href="#top"><svg><use href="#z"/></svg><span><b>ZENITH</b><small>ENGINEERING</small></span></a>
-<nav><a href="#about">ABOUT</a><a href="#divisions">DIVISIONS</a><a href="#water">WATER</a><a href="#standards">STANDARDS</a><a href="#contact">CONTACT</a></nav>
+<nav><a href="#about">ABOUT</a><a href="#divisions">DIVISIONS</a><a href="#water">WATER</a><a href="#standards">STANDARDS</a><a href="#leadership">LEADERSHIP</a><a href="#contact">CONTACT</a></nav>
 </div></header>
 
 <main id="top">
@@ -144,6 +150,14 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 <div class="note">Our water and construction work is planned in line with Sphere standards and the Core Humanitarian Standard, and our safeguarding approach follows IASC principles. We work with community participation, coordinate with partners and design for operation and maintenance after handover.</div>
 </div></section>
 
+<section id="leadership" class="alt"><div class="wrap">
+<div class="kicker">LEADERSHIP</div>
+<h2>Led by an engineer who has built it before</h2>
+<div class="lead-card">
+<img src="albraa.jpg" alt="Albraa Ibrahim Khamis Mohamed, Managing Director of Zenith Engineering" width="180" height="180">
+<div><h3>Albraa Ibrahim Khamis Mohamed</h3><div class="role">MANAGING DIRECTOR</div>
+<p>Civil engineer (hydraulics) with 5+ years in humanitarian infrastructure, project management, monitoring and donor compliance. MBA candidate. Albraa founded Zenith to give clients one accountable company and one standard across building, water, solar and design.</p></div></div>
+</div></section>
 <section id="contact" class="contact"><div class="wrap">
 <div class="kicker" style="color:var(--amber)">CONTACT</div>
 <h2>Tell us about your project</h2>
