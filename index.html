@@ -70,7 +70,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 @media(max-width:860px){.lead-card{flex-direction:column;align-items:flex-start;padding:24px}}
 .langbtn{background:transparent;border:1px solid var(--amber);color:var(--amber);font:700 12px Arial,sans-serif;padding:6px 12px;margin-left:26px;cursor:pointer;letter-spacing:.06em}
 .langbtn:hover{background:var(--amber);color:var(--navy)}
-html[dir=rtl] body{font-family:Tahoma,Arial,sans-serif}
+@font-face{font-family:Cairo;font-weight:400;font-display:swap;src:url(cairo-arabic-400.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFF,U+200C-200F,U+2010-2011,U+204F,U+25CC}
+@font-face{font-family:Cairo;font-weight:700;font-display:swap;src:url(cairo-arabic-700.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFF,U+200C-200F,U+2010-2011,U+204F,U+25CC}
+html[dir=rtl] body,html[dir=rtl] button{font-family:Cairo,Arial,sans-serif}
+html[dir=rtl] h1,html[dir=rtl] h2,html[dir=rtl] h3{font-weight:700}
 html[dir=rtl] *{letter-spacing:0!important}
 html[dir=rtl] nav a,html[dir=rtl] .langbtn{margin-left:0;margin-right:26px}
 html[dir=rtl] .note{border-left:0;border-right:5px solid var(--amber)}
