@@ -352,7 +352,7 @@ def page_contact():
     return (hero(t("CONTACT", "تواصل معنا"), t("Tell us about your project", "حدثنا عن مشروعك"),
                  t("Send us your scope, location and timeline. We will reply with questions or a proposal, and share our company profile on request.",
                    "أرسل لنا نطاق العمل والموقع والجدول الزمني. سنرد عليك بأسئلة أو بعرض، ونشارك ملف الشركة عند الطلب."), page=True, crumbs=crumbs(t("Contact", "تواصل معنا")))
-            + sec(t("GET IN TOUCH", "تواصل معنا"), t("Choose the way that suits you", "اختر الطريقة المناسبة لك"), "", inner, sid="brief"))
+            + sec(t("GET IN TOUCH", "تواصل معنا"), t("Choose the way that suits you", "اختر الطريقة المناسبة لك"), "", inner, sid="contact-us"))
 
 
 PAGES = [  # slug, title EN, title AR, desc EN, desc AR, body fn
@@ -376,7 +376,7 @@ PAGES = [  # slug, title EN, title AR, desc EN, desc AR, body fn
     ("services/design", "Interior Design & Landscape in Sudan — Zenith Engineering", "التصميم الداخلي والحدائق في السودان — زينث الهندسية",
      "Interior design and landscape for offices, homes and commercial spaces, built by the team that designs them.", "تصميم داخلي وتنسيق حدائق للمكاتب والمنازل والمساحات التجارية، ينفذه الفريق الذي يصممها.", page_design),
     ("team", "Team — Zenith Engineering", "الفريق — زينث الهندسية",
-     "Meet Zenith's leadership and technical core.", "تعرّف على قيادة زينث ونواتها الفنية.", page_team),
+     "Meet the founder, the operations manager and the specialist engineers behind Zenith Engineering in Kassala, Sudan.", "تعرّف على المؤسس والمدير التنفيذي للعمليات والمهندسين المتخصصين في زينث الهندسية في كسلا، السودان.", page_team),
     ("quality", "Methodology & Quality — Zenith Engineering", "المنهجية والجودة — زينث الهندسية",
      "Quality, health and safety, integrity and safeguarding commitments on every Zenith project.", "التزامات الجودة والصحة والسلامة والنزاهة والحماية في كل مشروع لزينث.", page_quality),
     ("capabilities", "Capabilities — Zenith Engineering", "القدرات — زينث الهندسية",
