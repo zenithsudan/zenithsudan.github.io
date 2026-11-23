@@ -42,6 +42,14 @@ NAV = [  # (slug, EN, AR)
 ]
 
 
+def profile_href():
+    f = f"/assets/Zenith-Company-Profile-{LANG.upper()}.pdf"
+    if os.path.exists(os.path.join(ROOT, f.lstrip("/"))):
+        return f, " download"
+    q = urllib.parse.quote(t("Please send me the Zenith company profile.", "أرجو إرسال ملف شركة زينث."))
+    return f'{url("contact")}?topic={q}#brief', ""
+
+
 def wa_link(text=None):
     text = text or t("Hello Zenith Engineering, I would like to discuss a project.",
                      "مرحباً زينث الهندسية، أودّ مناقشة مشروع.")
@@ -53,8 +61,7 @@ def header(cur, other):
         f'<a href="{url(s)}"{" aria-current=page" if s == cur or (cur and cur.startswith(s + "/")) else ""}>{t(e, a)}</a>'
         for s, e, a in NAV)
     lang_a = f'<a class="lang" href="{other}" hreflang="{"ar" if LANG == "en" else "en"}" lang="{"ar" if LANG == "en" else "en"}">{t("العربية", "English")}</a>'
-    return (f'<header><div class="wrap"><a class="brand" href="{url("")}" aria-label="Zenith Engineering"><svg aria-hidden="true"><use href="#z"/></svg>'
-            f'<span><b>ZENITH</b><small>ENGINEERING</small></span></a>'
+    return (f'<header><div class="wrap"><a class="brand" href="{url("")}" aria-label="Zenith Engineering"><img src="/assets/logo-white.svg" alt="Zenith Engineering" width="161" height="38"></a>'
             f'<input type="checkbox" id="nt" class="nt"><label for="nt" class="burger" aria-label="{t("Menu", "القائمة")}"><i></i><i></i><i></i></label>'
             f'<nav aria-label="{t("Main", "الرئيسية")}">{items}{lang_a}</nav></div></header>')
 
@@ -139,7 +146,8 @@ def svc_cards():
 
 def page_home():
     wa_btn = f'<a class="btn ghost" href="{wa_link()}" rel="noopener">{t("WHATSAPP US", "تواصل عبر واتساب")}</a>'
-    prof = f'<a class="btn" href="{url("contact")}?topic={urllib.parse.quote(t("Please send me the Zenith company profile.", "أرجو إرسال ملف شركة زينث."))}#brief">{t("REQUEST OUR COMPANY PROFILE", "اطلب ملف الشركة")}</a>'
+    ph, dl = profile_href()
+    prof = f'<a class="btn" href="{ph}"{dl}>{t("DOWNLOAD COMPANY PROFILE", "حمّل ملف الشركة") if dl else t("REQUEST OUR COMPANY PROFILE", "اطلب ملف الشركة")}</a>'
     values = grid(4, [
         card(t("Consistent quality", "جودة ثابتة"), t("The same standard on every site, every time.", "المعيار نفسه في كل موقع وفي كل مرة.")),
         card(t("Reliable commitment", "التزام موثوق"), t("Agreed scope, agreed schedule, delivered.", "نطاق متفق عليه، وجدول متفق عليه، وتسليم في موعده.")),
@@ -276,9 +284,9 @@ def page_team():
         "Civil engineer (building and construction) with 10+ years of experience leading work teams, supervising sites and managing material supply chains. He builds execution systems that protect efficiency and quality, and previously managed a company importing and delivering pumps and solar energy equipment. Mohamed runs Zenith's operations.",
         "مهندس مدني (بناء وتشييد) بخبرة تزيد على 10 سنوات في قيادة فرق العمل والإشراف الميداني وإدارة سلاسل توريد المواد. يضع أنظمة تنفيذ تضمن الكفاءة والجودة، وسبق له إدارة شركة تعمل في استيراد وتوصيل المضخات ومعدات الطاقة الشمسية. يتولى محمد إدارة عمليات زينث.") + "</div>"
     core = grid(3, [
-        card(t("Civil engineering", "الهندسة المدنية"), t("Construction, finishing and supply chain, with NGO site experience.", "الإنشاء والتشطيب وسلاسل التوريد، بخبرة في مواقع المنظمات.")),
-        card(t("Mechanical engineering", "الهندسة الميكانيكية"), t("Solar systems, plumbing and electrical works.", "الأنظمة الشمسية وأعمال السباكة والكهرباء.")),
-        card(t("Geological engineering", "الهندسة الجيولوجية"), t("Boreholes, pumps, tanks and water stations.", "الآبار والمضخات والخزانات ومحطات المياه.")),
+        card(t("Mossab Hassan Ali Mohammed", "مصعب حسن علي محمد"), t("Civil engineer. Construction, finishing and supply chain, with NGO site experience.", "مهندس مدني. الإنشاء والتشطيب وسلاسل التوريد، بخبرة في مواقع المنظمات.")),
+        card(t("Asim Seddig Mohamed Alhassan", "عاصم صديق محمد الحسن"), t("Mechanical engineer. Solar systems, plumbing and electrical works.", "مهندس ميكانيكي. الأنظمة الشمسية وأعمال السباكة والكهرباء.")),
+        card(t("Yasser Abdeaziz Alkay", "ياسر عبد العزيز الكي"), t("Geological engineer. Boreholes, pumps, tanks and water stations.", "مهندس جيولوجي. الآبار والمضخات والخزانات ومحطات المياه.")),
     ])
     tech = f'<p class="lead">{t("Skilled technicians with more than ten years in the trade join each project, with specialist subcontractors brought in under Zenith management when the work calls for it.", "ينضم إلى كل مشروع فنيون مهرة بخبرة تتجاوز عشر سنوات في المهنة، مع مقاولين متخصصين من الباطن تحت إدارة زينث عندما يتطلب العمل ذلك.")}</p>'
     return (hero(t("TEAM", "الفريق"), t("Led by engineers who have built it before", "بقيادة مهندسين سبق لهم التنفيذ"), "", page=True, crumbs=crumbs(t("Team", "الفريق")))
